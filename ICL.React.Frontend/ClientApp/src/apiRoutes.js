@@ -13,8 +13,14 @@ export const apiRoutes = {
   cmscontentleadershipbyid:`${process.env.REACT_APP_DWH_BACKEND}/api/CMSContentLeadership/contentById`,    
   cmscontentleadershipbyrol:`${process.env.REACT_APP_DWH_BACKEND}/api/CMSContentLeadership/contentByRol`,  
   cmscontentleadershipbyname:`${process.env.REACT_APP_DWH_BACKEND}/api/CMSContentLeadership/contentByName`,
-
-
+  //MASTER DATA REGISTRY
+  product: `${process.env.REACT_APP_PCT_BACKEND}/api/Product`,
+  unit: `${process.env.REACT_APP_PCT_BACKEND}/api/Unit`,
+  category: `${process.env.REACT_APP_PCT_BACKEND}/api/Category`,
+  location: `${process.env.REACT_APP_PCT_BACKEND}/api/Location`,
+  carrier: `${process.env.REACT_APP_PCT_BACKEND}/api/Carrier`,
+  vendor: `${process.env.REACT_APP_PCT_BACKEND}/api/Vendor`,
+  dashboard: `${process.env.REACT_APP_PCT_BACKEND}/api/Dashboard`,
   //API routes for User management
   icl_user: `${process.env.REACT_APP_PCT_BACKEND}/api/User/user-all`,
   icl_user_byid: `${process.env.REACT_APP_PCT_BACKEND}/api/User/user-by-id`,
