@@ -11,6 +11,8 @@ import Navbar from "../components/navbar/Navbar";
 import dashboardItems from "../components/sidebar/psaItems";
 import Sidebar from "../components/sidebar/Sidebar";
 import Footer from "../components/Footer";
+import {useTheme} from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 // import Settings from "../components/Settings";
 
 const drawerWidth = 258;
@@ -55,6 +57,10 @@ const PSALayout = ({ children }) => {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+    const theme = useTheme();
+    const isLgUp = useMediaQuery(theme.breakpoints.up("lg"));
+
     const filteredRoutes = useContext(FilteredRoutesContext);
 
     // Filter the dashboardItems based on the filteredRoutes
@@ -90,7 +96,7 @@ const PSALayout = ({ children }) => {
       </Drawer>
       <AppContent>
         <Navbar onDrawerToggle={handleDrawerToggle} />
-        <MainContent>
+        <MainContent p={isLgUp ? 12 : 5}>
           {children}
           <Outlet />
         </MainContent>

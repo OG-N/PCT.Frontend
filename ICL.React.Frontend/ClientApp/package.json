@@ -8,6 +8,8 @@
     "@azure/msal-react": "^1.5.0",
     "@craco/craco": "7.0.0-alpha.7",
     "@date-io/date-fns": "2.15.0",
+    "@date-io/dayjs": "^2.16.0",
+    "dayjs": "^1.11.7",
     "@emotion/cache": "11.10.3",
     "@emotion/react": "11.10.4",
     "@emotion/server": "11.10.0",

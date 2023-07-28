@@ -1,26 +1,22 @@
 import React, { forwardRef } from "react";
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
-import { rgba, darken } from "polished";
+import { rgba } from "polished";
 
 import { Chip, Collapse, ListItemButton, ListItemText } from "@mui/material";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 
 const CustomRouterLink = forwardRef((props, ref) => (
-  <div ref={ref}>
-    <NavLink {...props} />
-  </div>
+    <div ref={ref}>
+        <NavLink {...props} />
+    </div>
 ));
 
 const Item = styled(ListItemButton)`
-  padding-top: ${(props) =>
-    props.theme.spacing(props.depth && props.depth > 0 ? 2 : 3)};
-  padding-bottom: ${(props) =>
-    props.theme.spacing(props.depth && props.depth > 0 ? 2 : 3)};
-  padding-left: ${(props) =>
-    props.theme.spacing(props.depth && props.depth > 0 ? 14 : 8)};
-  padding-right: ${(props) =>
-    props.theme.spacing(props.depth && props.depth > 0 ? 4 : 7)};
+  padding-top: ${(props) => props.theme.spacing(props.depth && props.depth > 0 ? 2 : 3)};
+  padding-bottom: ${(props) => props.theme.spacing(props.depth && props.depth > 0 ? 2 : 3)};
+  padding-left: ${(props) => props.theme.spacing(props.depth && props.depth > 0 ? 14 : 8)};
+  padding-right: ${(props) => props.theme.spacing(props.depth && props.depth > 0 ? 4 : 7)};
   font-weight: ${(props) => props.theme.typography.fontWeightRegular};
   svg {
     color: ${(props) => props.theme.sidebar.color};
@@ -34,9 +30,9 @@ const Item = styled(ListItemButton)`
     color: ${(props) => props.theme.sidebar.color};
   }
   &.${(props) => props.activeclassname} {
-    background-color: ${(props) => props.backgroundcolor};
+    background-color: ${(props) => (props.backgroundcolor ? props.backgroundcolor : "")};
     span {
-      color: ${(props) => props.color ? props.color : props.theme.sidebar.color};
+      color: ${(props) => props.theme.sidebar.color};
     }
   }
 `;
@@ -44,12 +40,8 @@ const Item = styled(ListItemButton)`
 const Title = styled(ListItemText)`
   margin: 0;
   span {
-    color: ${(props) =>
-      rgba(
-        props.theme.sidebar.color,
-        props.depth && props.depth > 0 ? 0.7 : 1
-      )};
-    font-size: ${(props) => props.theme.typography.body2.fontSize}px;
+    color: ${(props) => rgba(props.theme.sidebar.color, props.depth && props.depth > 0 ? 0.7 : 1)};
+    font-size: ${(props) => props.theme.typography.body1.fontSize}px;
     padding: 0 ${(props) => props.theme.spacing(4)};
   }
 `;
@@ -101,7 +93,7 @@ const SidebarNavListItem = (props) => {
   if (children) {
     return (
       <React.Fragment>
-        <Item depth={depth} onClick={handleToggle}>
+        <Item depth={depth} onClick={handleToggle} sx={{ backgroundColor: open ? backgroundcolor : "inherit" }}>
           {Icon && <Icon />}
           <Title depth={depth}>
             {title}
@@ -123,6 +115,7 @@ const SidebarNavListItem = (props) => {
         activeclassname="active"
         backgroundcolor={backgroundcolor}
         color={color}
+        sx={{ backgroundColor: backgroundcolor }}
       >
         {Icon && <Icon />}
         <Title depth={depth}>

@@ -140,6 +140,10 @@ const CountryMonitoring = async(() => import("./pages/enable/CountryMonitoring")
 const FreightBillAudit = async(() => import("./pages/home/FreightBillAudit"));
 const QuarterlySupplyPlans = async(() => import("./pages/plan/QuarterlySupplyPlans"));
 const InsuranceRequirements = async(() => import("./pages/store/InsuranceRequirements"));
+const PSA = async(() => import("./pages/psa/index"));
+const CreateNewOrder = async(() => import("./pages/psa/order-management/CreateNewOrder"));
+const ProductDetails = async(() => import("./pages/psa/order-management/ProductDetails"));
+const RequisitionOrderForm = async(() => import("./pages/psa/order-management/RequisitionOrderForm"));
 
 const routes = [
   {
@@ -701,12 +705,28 @@ const routes = [
   },
   {
     path: "psa",
-    element: <PSALayout />,
+    element: (
+        <AuthGuard>
+          <PSALayout />
+        </AuthGuard>
+    ),
     children: [
       {
         path: "",
-        element: "",
-      }
+        element: <PSA />,
+      },
+      {
+        path: "create-new-order",
+        element: <CreateNewOrder />,
+      },
+      {
+        path: "product-details",
+        element: <ProductDetails />,
+      },
+      {
+        path: "requisition-order-form",
+        element: <RequisitionOrderForm />
+      },
     ],
   },
   {
