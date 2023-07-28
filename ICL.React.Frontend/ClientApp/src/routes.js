@@ -140,6 +140,19 @@ const CountryMonitoring = async(() => import("./pages/enable/CountryMonitoring")
 const FreightBillAudit = async(() => import("./pages/home/FreightBillAudit"));
 const QuarterlySupplyPlans = async(() => import("./pages/plan/QuarterlySupplyPlans"));
 const InsuranceRequirements = async(() => import("./pages/store/InsuranceRequirements"));
+const MasterDataRegistry = async(() => import("./pages/master-data-registry/index"));
+const Locations = async(() => import("./pages/master-data-registry/locations/index"));
+const NewProduct = async(() => import("./pages/master-data-registry/products/NewProduct"));
+const MasterDataRegistryProducts = async(() => import("./pages/master-data-registry/products"));
+const NewLocation = async(() => import("./pages/master-data-registry/locations/NewLocation"));
+const Vendors = async(() => import("./pages/master-data-registry/vendors/index"));
+const NewVendor = async(() => import("./pages/master-data-registry/vendors/NewVendor"));
+const Carriers = async(() => import("./pages/master-data-registry/carriers/index"));
+const NewCarrier = async(() => import("./pages/master-data-registry/carriers/NewCarrier"));
+const Unit = async(() => import("./pages/master-data-registry/unit/index"));
+const NewUnit = async(() => import("./pages/master-data-registry/unit/NewUnit"));
+const Category = async(() => import("./pages/master-data-registry/category/index"));
+const NewCategory = async(() => import("./pages/master-data-registry/category/NewCategory"));
 const PSA = async(() => import("./pages/psa/index"));
 const CreateNewOrder = async(() => import("./pages/psa/order-management/CreateNewOrder"));
 const ProductDetails = async(() => import("./pages/psa/order-management/ProductDetails"));
@@ -700,6 +713,88 @@ const routes = [
       {
         path: "",
         element: <CustomerUploadPage />,
+      },
+    ],
+  },
+  {
+    path: "master-data-registry",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "",
+        element: <MasterDataRegistry />,
+      },
+      {
+        path: "products",
+        element: <MasterDataRegistryProducts />
+      },
+      {
+        path: "products/new-product",
+        element: <NewProduct />,
+      },
+      {
+        path: "products/new-product/:id",
+        element: <NewProduct />,
+      },
+      {
+        path: "locations",
+        element: <Locations />,
+      },
+      {
+        path: "locations/new-location",
+        element: <NewLocation />,
+      },
+      {
+        path: "locations/new-location/:id",
+        element: <NewLocation />,
+      },
+      {
+        path: "vendors",
+        element: <Vendors />,
+      },
+      {
+        path: "vendors/new-vendor",
+        element: <NewVendor />,
+      },
+      {
+        path: "vendors/new-vendor/:id",
+        element: <NewVendor />,
+      },
+      {
+        path: "carriers",
+        element: <Carriers />,
+      },
+      {
+        path: "carriers/new-carrier",
+        element: <NewCarrier />
+      },
+      {
+        path: "carriers/new-carrier/:id",
+        element: <NewCarrier />
+      },
+      {
+        path: "units",
+        element: <Unit />
+      },
+      {
+        path: "units/new-unit",
+        element: <NewUnit />,
+      },
+      {
+        path: "units/new-unit/:id",
+        element: <NewUnit />,
+      },
+      {
+        path: "categories",
+        element: <Category />,
+      },
+      {
+        path: "categories/new-category",
+        element: <NewCategory />,
+      },
+      {
+        path: "categories/new-category/:id",
+        element: <NewCategory />,
       },
     ],
   },
