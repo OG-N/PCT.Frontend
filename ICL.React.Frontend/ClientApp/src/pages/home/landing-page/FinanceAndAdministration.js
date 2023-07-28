@@ -26,7 +26,7 @@ const FinanceAndAdministration = () => {
                                 </Grid>
                                 <Grid item xs={12} align="center" justify="center">
                                     <Typography variant="h4" component="h4">
-                                        Finance & Administration
+                                        Management & Administration
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={12} align="right" justify="right">

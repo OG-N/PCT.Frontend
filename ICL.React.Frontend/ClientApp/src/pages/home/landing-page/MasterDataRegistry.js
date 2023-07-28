@@ -36,7 +36,7 @@ const MasterDataRegistry = () => {
                                     </Grid>
                                     <Grid item xs={12} align="center" justify="center">
                                         <Typography variant="h4" component="h4">
-                                            Master Data Registry
+                                            Supply Chain Catalogue
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={12} align="right" justify="right">
