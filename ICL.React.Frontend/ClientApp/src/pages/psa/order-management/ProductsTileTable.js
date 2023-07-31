@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Grid, Pagination, Paper, Typography } from '@mui/material';
 import {NavLink} from "react-router-dom";
+import {useQuery} from "@tanstack/react-query";
+import {getFamilies, getToken} from "../../../api/product-catalog";
 
 const itemsPerPage = 8; // Number of items per page
 
@@ -39,7 +41,34 @@ const data = [
 
 const ProductsTileTable = () => {
     const [page, setPage] = React.useState(1);
-
+    const {
+        isLoading,
+        isError,
+        data: TokenData,
+    } = useQuery(["getToken"], getToken, {
+        retry: 1, // Set the number of retries for token refresh, if needed
+        staleTime: 3600000, // Set the duration to consider data fresh (1 hour in milliseconds)
+    });
+    const {
+        isLoading: isLoadingFamilies,
+        isError: isErrorFamilies,
+        data: familiesData,
+    } = useQuery(["getFamilies"], getFamilies, {
+        enabled: !!TokenData?.data.access_token
+    });
+    if (isLoading) {
+        return `...loading`;
+    }
+    if (isError) {
+        return `...error`;
+    }
+    if (isLoadingFamilies) {
+        return `...loading`;
+    }
+    if (isErrorFamilies) {
+        return `...error`;
+    }
+    console.log(familiesData);
     // Calculate total number of pages
     const totalPages = Math.ceil(data.length / itemsPerPage);
 

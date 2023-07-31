@@ -2,7 +2,9 @@ export const apiRoutes = {
   purchaseOrder: `${process.env.REACT_APP_DWH_BACKEND}/api/PurchaseOrder`,
   customerOrder:`${process.env.REACT_APP_DWH_BACKEND}/api/PurchaseOrder/outbound`,
   user:`${process.env.REACT_APP_DWH_BACKEND}/api/User`,
-  //role:`${process.env.REACT_APP_DWH_BACKEND}/api/Role`,
+  // PRODUCT CATALOGUE
+  token: `${process.env.REACT_APP_DWH_BACKEND}/api/Token`,
+  productcatalog: `${process.env.REACT_APP_PRODUCT_CATALOG}`,
   cmscontentimpact:`${process.env.REACT_APP_DWH_BACKEND}/api/CMSContentImpact`,
   cmscontentroles:`${process.env.REACT_APP_DWH_BACKEND}/api/CMSContentRoles`,
   cmscontentrolesbyid:`${process.env.REACT_APP_DWH_BACKEND}/api/CMSContentRoles/rolesByid`,

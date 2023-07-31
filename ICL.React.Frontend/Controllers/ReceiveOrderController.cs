@@ -1,19 +1,10 @@
-﻿using Azure.Messaging.ServiceBus;
-using ICL.React.Frontend.Entitites;
-using Microsoft.AspNetCore.Http;
+﻿using ICL.React.Frontend.Entitites;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Collections.Specialized;
 using System.Globalization;
-using System.Net;
 using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
-using Microsoft.Extensions.Configuration;
 using System.Dynamic;
 using System.Xml.Linq;
-using static Azure.Core.HttpHeader;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
 
 namespace ICL.React.Frontend.Controllers
 {
